@@ -2,7 +2,9 @@ import java.util.List;
 
 public class Solution {
     public static void main(String[] args) {
-        System.out.println(Person.persons());
+        System.out.println(maleOnly(Person.persons()));
+        names(Person.persons()).forEach(System.out::println);
+
 
     }
     // Filter the list of person to includes only males.
@@ -13,5 +15,12 @@ public class Solution {
                 .map(Person::getName)
         .toList();
         return males;
+    }
+    //Map the llist of persons to their names.
+    static  List<String> names (List<Person> people){
+        List<String> names = people.stream()
+                .map(Person::getName)
+                .toList();
+        return names;
     }
 }
